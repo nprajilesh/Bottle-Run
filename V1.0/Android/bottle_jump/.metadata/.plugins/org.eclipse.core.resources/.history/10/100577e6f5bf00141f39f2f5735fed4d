@@ -1,0 +1,12 @@
+package com.cetdhwani.managers;
+
+import org.anddev.andengine.ui.activity.BaseGameActivity;
+
+public class Test {
+	private BaseGameActivity activity;
+	
+	public Test(BaseGameActivity activity){
+		this.activity=activity;
+	}
+
+}

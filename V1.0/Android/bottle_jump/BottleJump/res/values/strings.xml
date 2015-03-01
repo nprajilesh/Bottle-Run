@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bottle Jump</string>
+    <string name="hello_world">Hello world!</string>
+     <string name="fb_id">1558833751068230</string>
+    <string name="app_string">Dhwani is more addictive than each bottle you jump!</string>
+    <string name="msg">"Please wait for a while.. "</string>
+    
+
+</resources>

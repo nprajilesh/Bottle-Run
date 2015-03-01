@@ -1,0 +1,57 @@
+package com.cetdhwani.managers;
+
+import org.anddev.andengine.engine.Engine;
+import org.anddev.andengine.engine.camera.Camera;
+import org.anddev.andengine.engine.handler.IUpdateHandler;
+import org.anddev.andengine.engine.options.EngineOptions;
+import org.anddev.andengine.engine.options.EngineOptions.ScreenOrientation;
+import org.anddev.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
+import org.anddev.andengine.entity.scene.Scene;
+import org.anddev.andengine.entity.scene.background.ColorBackground;
+import org.anddev.andengine.entity.shape.Shape;
+import org.anddev.andengine.entity.text.ChangeableText;
+import org.anddev.andengine.entity.util.FPSLogger;
+import org.anddev.andengine.extension.input.touch.controller.MultiTouch;
+import org.anddev.andengine.extension.input.touch.controller.MultiTouchController;
+import org.anddev.andengine.extension.input.touch.exception.MultiTouchException;
+import org.anddev.andengine.input.touch.TouchEvent;
+import org.anddev.andengine.opengl.font.Font;
+import org.anddev.andengine.opengl.texture.Texture;
+import org.anddev.andengine.opengl.texture.TextureOptions;
+import org.anddev.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
+import org.anddev.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
+import org.anddev.andengine.opengl.texture.region.TextureRegionFactory;
+import org.anddev.andengine.ui.activity.BaseGameActivity;
+
+import com.qwerjk.andengine.entity.sprite.PixelPerfectAnimatedSprite;
+import com.qwerjk.andengine.entity.sprite.PixelPerfectSprite;
+import com.qwerjk.andengine.opengl.texture.region.PixelPerfectTextureRegion;
+import com.qwerjk.andengine.opengl.texture.region.PixelPerfectTextureRegionFactory;
+import com.qwerjk.andengine.opengl.texture.region.PixelPerfectTiledTextureRegion;
+
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.widget.Toast;
+
+
+
+public class Test {
+	private BaseGameActivity activity;
+	private BitmapTextureAtlas playerTexture;
+    private BitmapTextureAtlas bottleTexture;
+    private PixelPerfectTiledTextureRegion playerRegion;
+    private PixelPerfectTextureRegion bottleRegion;
+    private PixelPerfectTextureRegion diamond32Region;
+    
+	
+	public Test(BaseGameActivity activity){
+		this.activity=activity;
+	}
+	private void loadPixels(){
+		
+        this.playerTexture = new BitmapTextureAtlas(2048, 128, TextureOptions.BILINEAR_PREMULTIPLYALPHA);
+        this.playerRegion = PixelPerfectTextureRegionFactory.createTiledFromAsset(playerTexture, activity, "gfx/game/player.png", 0, 0, 2, 1);
+
+	}
+
+}

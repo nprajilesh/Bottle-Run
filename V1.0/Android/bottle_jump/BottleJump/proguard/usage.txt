@@ -1,0 +1,11 @@
+com.cetdhwani.bottlejump.AfterGame:
+    private float lastX
+com.cetdhwani.bottlejump.DownAd
+com.cetdhwani.bottlejump.FacebookLogin:
+    static android.widget.PopupWindow popupWindow
+com.cetdhwani.bottlejump.Localstore:
+    61:69:org.json.JSONObject score()
+com.cetdhwani.bottlejump.MyWallet
+com.cetdhwani.bottlejump.SendData:
+    private android.app.ProgressDialog pDialog
+com.cetdhwani.bottlejump.Update

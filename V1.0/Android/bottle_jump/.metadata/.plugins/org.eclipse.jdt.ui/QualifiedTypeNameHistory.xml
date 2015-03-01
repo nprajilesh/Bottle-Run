@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.andengine.audio.music.MusicManager"/>
+<fullyQualifiedTypeName name="com.cetdhwani.scenes.SoundManager"/>
+<fullyQualifiedTypeName name="com.cetdhwani.managers.ResManager"/>
+<fullyQualifiedTypeName name="com.cetdhwani.managers.AudioManager"/>
+<fullyQualifiedTypeName name="org.andengine.opengl.texture.TextureManager"/>
+<fullyQualifiedTypeName name="android.app.Activity"/>
+<fullyQualifiedTypeName name="com.cetdhwani.managers.CamManager"/>
+<fullyQualifiedTypeName name="com.cetdhwani.managers.ImgManager"/>
+<fullyQualifiedTypeName name="org.andengine.opengl.vbo.VertexBufferObjectManager"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.ContactListener"/>
+<fullyQualifiedTypeName name="org.andengine.entity.scene.IOnSceneTouchListener"/>
+<fullyQualifiedTypeName name="com.cetdhwani.sprites.PlayerSprite"/>
+<fullyQualifiedTypeName name="com.cetdhwani.managers.AudManager"/>
+<fullyQualifiedTypeName name="org.andengine.engine.Engine"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="org.andengine.entity.primitive.Rectangle"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.physics.box2d.FixtureDef"/>
+<fullyQualifiedTypeName name="java.util.Queue"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="com.cetdhwani.scenes.Values"/>
+<fullyQualifiedTypeName name="org.andengine.entity.sprite.TiledSprite"/>
+<fullyQualifiedTypeName name="com.cetdhwani.scenes.GameScene"/>
+<fullyQualifiedTypeName name="com.cetdhwani.sprites.CreatureSprite"/>
+<fullyQualifiedTypeName name="org.andengine.opengl.texture.region.TiledTextureRegion"/>
+<fullyQualifiedTypeName name="com.cetdhwani.scenes.Values.State"/>
+<fullyQualifiedTypeName name="org.andengine.entity.sprite.AnimatedSprite"/>
+<fullyQualifiedTypeName name="org.anddev.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas"/>
+<fullyQualifiedTypeName name="org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas"/>
+<fullyQualifiedTypeName name="org.anddev.andengine.ui.activity.BaseGameActivity"/>
+<fullyQualifiedTypeName name="org.anddev.andengine.engine.LimitedFPSEngine"/>
+<fullyQualifiedTypeName name="org.andengine.engine.LimitedFPSEngine"/>
+</qualifiedTypeNameHistroy>

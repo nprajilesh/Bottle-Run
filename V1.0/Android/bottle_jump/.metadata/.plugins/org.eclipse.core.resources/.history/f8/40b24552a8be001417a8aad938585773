@@ -1,0 +1,111 @@
+package com.cetdhwani.managers;
+
+import org.andengine.audio.music.Music;
+import org.andengine.audio.music.MusicFactory;
+import org.andengine.audio.music.MusicManager;
+import org.andengine.engine.Engine;
+
+import android.app.Activity;
+import android.util.Log;
+
+import com.cetdhwani.managers.ResManager;
+
+public class AudManager {
+	private boolean ENABLED;
+	private Activity activity;
+	private MusicManager manager;
+	public Music jumpMusic,gameOverMusic,bgMusic,hitMusic, pointMusic,crashMusic,vanStopMusic,vanStartMusic,vanRunMusic;
+	public AudManager(Activity activity,MusicManager manager,boolean ENABLED){
+		this.ENABLED=ENABLED;
+		this.manager=manager;
+		this.activity=activity;
+	}
+	public void setEnabled(boolean flag){
+		ENABLED=false;
+	}
+	public boolean isEnabled(){
+		return ENABLED;
+	}
+	public  void playBgMusic(boolean flag,boolean loop){
+		if(bgMusic!=null){
+			if(flag){
+				bgMusic.play();
+				bgMusic.setLooping(loop);				
+			}
+			else if(bgMusic.isPlaying())
+				bgMusic.pause();
+		}
+	}
+	public  void playGameOverMusic(boolean flag){
+		if(gameOverMusic!=null){
+			if(flag)
+				gameOverMusic.play();
+			else if(gameOverMusic.isPlaying())
+				gameOverMusic.pause();
+		}
+	}
+	public  void playHitMusic(boolean flag){
+		if(crashMusic!=null){
+			if(flag)
+				hitMusic.play();
+			else if(hitMusic.isPlaying())
+				hitMusic.pause();
+		}
+	}
+	public  void playCrashMusic(boolean flag){
+		if(crashMusic!=null){
+			if(flag)
+				crashMusic.play();
+			else if(crashMusic.isPlaying())
+				crashMusic.pause();
+		}
+	}
+	public  void jumpMusic(boolean flag){
+		if(jumpMusic!=null){
+			if(flag)
+				jumpMusic.play();
+			else if(jumpMusic.isPlaying())
+				jumpMusic.pause();
+		}
+	}
+	public  void pointMusic(boolean flag){
+		if(pointMusic!=null){
+			if(flag)
+				pointMusic.play();
+			else if(pointMusic.isPlaying())
+				pointMusic.pause();
+		}
+	}
+
+	public void loadMusic(){
+		try {
+			jumpMusic = MusicFactory.createMusicFromAsset(
+					manager, activity, "sound/jump.ogg");
+			hitMusic = MusicFactory.createMusicFromAsset(
+					manager, activity, "sound/hit.ogg");
+			pointMusic = MusicFactory.createMusicFromAsset(
+					manager, activity, "sound/point.ogg");
+			crashMusic = MusicFactory.createMusicFromAsset(
+					manager, activity, "sound/bottlecrash.ogg");
+			gameOverMusic = MusicFactory.createMusicFromAsset(
+					manager, activity, "sound/gameover.ogg");
+			vanStopMusic = MusicFactory.createMusicFromAsset(
+					manager, activity, "sound/vanstop1.ogg");
+			vanStartMusic = MusicFactory.createMusicFromAsset(
+					manager, activity, "sound/vanstart1.ogg");
+			vanRunMusic = MusicFactory.createMusicFromAsset(
+					manager, activity, "sound/vanrun.ogg");
+
+			bgMusic=MusicFactory.createMusicFromAsset(
+					manager, activity, "sound/bgium.wav");
+
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			Log.d("music","not loaded"+e);
+			e.printStackTrace();
+		}
+
+	}
+	
+}

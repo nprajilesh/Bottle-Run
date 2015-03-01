@@ -1,0 +1,57 @@
+package com.cetdhwani.scenes;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Values {
+	public static enum State {
+		before, visiting, visited
+	}
+	public static State state;
+
+	public static final float BOTTLE_INIT_VEL = 10f;
+	public static final float INIT_UP_VEL = 20f;
+	public static final float INIT_GRAVITY = 45f;
+	public static float MIN_OFFSET=10;
+	public static float  ALLOWANCE=10;
+	public static float GRAVITY = INIT_GRAVITY;
+	public static float UP_VELOCITY = INIT_UP_VEL;
+	public static float MIN_HEIGHT, MIN_WIDTH; 
+	public final static int CARDS_COUNT = 3;
+	public static float AIR_TIME;
+	public static float bottleSpeed;
+	public static boolean GAME_OVER=false;
+	public static boolean GAME_PAUSE=false;
+	public static boolean PAUSE_WORLD=false;
+	public static boolean CAN_JUMP;
+	public static int score;
+	public static int secs;
+	public static int cards;
+	public static int blinkDur;
+	public static int jumps;
+	public static Queue countQueue;
+	public static void loadInitVals() {
+		countQueue=new LinkedList();		
+		GRAVITY = INIT_GRAVITY;
+		UP_VELOCITY = INIT_UP_VEL;
+		GAME_OVER = false;
+		GAME_PAUSE=false;
+		PAUSE_WORLD=false;
+		CAN_JUMP = true;
+		state=State.before;
+		score = 0;
+		secs = 0;
+		cards = 0;
+		blinkDur = 0;
+		jumps = 0;
+		bottleSpeed = BOTTLE_INIT_VEL;		
+		MIN_OFFSET=175;
+		ALLOWANCE=160;
+		MIN_HEIGHT = INIT_UP_VEL * INIT_UP_VEL / (2 * INIT_GRAVITY);
+		AIR_TIME = 2 * INIT_UP_VEL / INIT_GRAVITY;
+		AIR_TIME = Math.abs(AIR_TIME);
+		MIN_WIDTH = AIR_TIME * BOTTLE_INIT_VEL;
+		MIN_WIDTH = Math.abs(MIN_WIDTH);
+		
+	}
+}

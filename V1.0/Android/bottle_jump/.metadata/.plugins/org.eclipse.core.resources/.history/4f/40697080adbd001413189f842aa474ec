@@ -1,0 +1,151 @@
+package com.cetdhwani.scenes;
+
+import org.andengine.engine.handler.timer.ITimerCallback;
+import org.andengine.engine.handler.timer.TimerHandler;
+import org.andengine.entity.IEntity;
+import org.andengine.entity.modifier.MoveXModifier;
+import org.andengine.entity.modifier.MoveYModifier;
+import org.andengine.entity.scene.Scene;
+import org.andengine.entity.scene.background.Background;
+import org.andengine.entity.sprite.AnimatedSprite;
+import org.andengine.entity.sprite.Sprite;
+import org.andengine.entity.text.Text;
+
+import com.cetdhwani.managers.SceneManager;
+import com.cetdhwani.managers.SceneManager.Scenes;
+
+
+
+public class SplashScene extends Scene{
+	private SceneManager sceneManager;
+    private Sprite freedom,ethics,happiness;
+    private AnimatedSprite logoSprite;
+	private MoveYModifier modY[];
+	private MoveXModifier modX[];
+	private TimerHandler loader;
+	Position f,e,h;
+	public SplashScene(SceneManager sceneManager) {
+		this.sceneManager = sceneManager;
+		this.setBackground(new Background(255, 255,255));
+		float width=sceneManager.resourceManager.splashRegion.getWidth();
+		float height=sceneManager.resourceManager.splashRegion.getHeight();
+		float left=sceneManager.resourceManager.cameraManager.width/2-width/2;
+		float top=sceneManager.resourceManager.cameraManager.height/2-height/2;
+//		Sprite icon = new Sprite(left,top, sceneManager.resourceManager.splashRegion,
+//				sceneManager.resourceManager.engine.getVertexBufferObjectManager());
+//		attachChild(icon);	
+		modX=new MoveXModifier[3];
+		modY=new MoveYModifier[3];
+		loadLogos();
+
+	}
+	private void loadLogos(){
+		float camWidth=sceneManager.resourceManager.cameraManager.width;
+		float camHeight=sceneManager.resourceManager.cameraManager.height;
+		
+		float radius=sceneManager.resourceManager.freedomRegion.getWidth()/2;
+
+		float logoLeft = (sceneManager.resourceManager.cameraManager.mCamera
+				.getWidth() - sceneManager.resourceManager.loaderRegion
+				.getWidth()) / 2;
+		float logoTop = (sceneManager.resourceManager.cameraManager.mCamera
+				.getHeight() - sceneManager.resourceManager.loaderRegion
+				.getHeight()) / 2;
+		
+		logoSprite = new AnimatedSprite(logoLeft, logoTop-radius-20,
+				sceneManager.resourceManager.loaderRegion,
+				sceneManager.resourceManager.engine
+						.getVertexBufferObjectManager());
+		logoSprite.animate(72,false);
+		attachChild(logoSprite);
+
+		
+		float left=sceneManager.resourceManager.cameraManager.width/2-sceneManager.resourceManager.happinesRegion.getWidth();
+		float top=sceneManager.resourceManager.cameraManager.height/2;
+		freedom= new Sprite(-radius*2,-radius*2 ,
+				sceneManager.resourceManager.freedomRegion,
+				sceneManager.resourceManager.engine
+						.getVertexBufferObjectManager());
+		happiness=new Sprite(camWidth,-radius*2,
+				sceneManager.resourceManager.happinesRegion,
+				sceneManager.resourceManager.engine
+						.getVertexBufferObjectManager());
+		ethics=new Sprite(camWidth/2-radius,camHeight,
+				sceneManager.resourceManager.ethicsRegion,
+				sceneManager.resourceManager.engine
+						.getVertexBufferObjectManager());
+		attachChild(freedom);
+		attachChild(happiness);
+		attachChild(ethics);
+		
+		f=new Position(-radius*2,camWidth/2-radius*2,-radius*2,camHeight/2+10);
+		
+		h=new Position(camWidth,camWidth/2,-radius*2,camHeight/2+10);
+	
+		e=new Position(camWidth/2-radius,camWidth/2-radius,camHeight,camHeight/2+radius+10);
+		addDelay();
+
+	}
+	private void addDelay(){
+	    registerUpdateHandler(loader=new TimerHandler(1.8f, true, new ITimerCallback() {
+			public void onTimePassed(TimerHandler pTimerHandler) {
+				sceneManager.resourceManager.engine.unregisterUpdateHandler(loader);
+				moveXY(f,freedom,0);
+				moveXY(e,ethics,2);
+				moveXY(h,happiness,1);
+				
+			}
+}));
+
+	
+	}
+	private void moveXY(Position pos,final Sprite sprite,final int index){
+		modX[index] = new MoveXModifier(1.5f,
+				pos.startX,
+				pos.endX) {
+			@Override
+			protected void onModifierFinished(IEntity pItem) {
+				super.onModifierFinished(pItem);
+				sceneManager.resourceManager.engine
+						.runOnUpdateThread(new Runnable() {
+							@Override
+							public void run() {
+								
+							}
+						});
+			}
+
+		};
+		
+		 modY[index] = new MoveYModifier(1.5f,
+				pos.startY,
+				pos.endY) {
+			@Override
+			protected void onModifierFinished(IEntity pItem) {
+				super.onModifierFinished(pItem);
+				sceneManager.resourceManager.engine
+						.runOnUpdateThread(new Runnable() {
+							
+							@Override
+							public void run() {
+								sprite.unregisterEntityModifier(modX[index]);
+							}
+						});
+			}
+
+		};
+		sprite.registerEntityModifier(modX[index]);
+		sprite.registerEntityModifier(modY[index]);
+
+	}
+
+}
+ class Position{
+	public float startX,endX,startY,endY; 
+	public Position(float startX,float endX,float startY,float endY){
+		this.startX=startX;
+		this.startY=startY;
+		this.endX=endX;
+		this.endY=endY;
+	}
+}

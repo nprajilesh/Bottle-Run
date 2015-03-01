@@ -1,0 +1,116 @@
+package cet.magic75.dhwani;
+
+import org.andengine.engine.handler.timer.ITimerCallback;
+import org.andengine.engine.handler.timer.TimerHandler;
+import org.andengine.engine.options.EngineOptions;
+import org.andengine.entity.scene.Scene;
+import org.andengine.ui.IGameInterface.OnCreateResourcesCallback;
+import org.andengine.ui.IGameInterface.OnCreateSceneCallback;
+import org.andengine.ui.IGameInterface.OnPopulateSceneCallback;
+import org.andengine.ui.activity.BaseGameActivity;
+
+import com.cetdhwani.managers.CamManager;
+import com.cetdhwani.managers.ResManager;
+import com.cetdhwani.managers.SceneManager;
+import com.cetdhwani.managers.SceneManager.Scenes;
+import com.cetdhwani.scenes.GameScene;
+
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class GameActivity extends BaseGameActivity {
+
+	private CamManager cameraManager;
+	private ResManager resourceManager;
+	private SceneManager sceneManager;
+	private TimerHandler loader;
+	
+	@Override
+	public EngineOptions onCreateEngineOptions() {
+		cameraManager=new CamManager(640,480);		
+		cameraManager.engineOptions.getAudioOptions().setNeedsMusic(true);
+		 cameraManager.engineOptions.getRenderOptions().setDithering(true);
+			return cameraManager.engineOptions;		
+
+	}
+	@Override
+	public void onCreateResources(
+			OnCreateResourcesCallback pOnCreateResourcesCallback)
+			throws Exception {
+		resourceManager=new ResManager(this,cameraManager);
+		resourceManager.loadSplashResources();
+		pOnCreateResourcesCallback.onCreateResourcesFinished();		
+	}
+		@Override
+	public void onCreateScene(OnCreateSceneCallback pOnCreateSceneCallback)
+			throws Exception {
+		sceneManager=new SceneManager(cameraManager,resourceManager);
+		sceneManager.createSplashScene();
+		pOnCreateSceneCallback.onCreateSceneFinished(sceneManager.splashScene);		
+	}
+
+	@Override
+	public void onPopulateScene(Scene pScene,
+			OnPopulateSceneCallback pOnPopulateSceneCallback) throws Exception {
+		    resourceManager.unLoadSplashResources();
+		    resourceManager.engine.registerUpdateHandler(loader=new TimerHandler(3.6f, true, new ITimerCallback() {
+				public void onTimePassed(TimerHandler pTimerHandler) {
+					resourceManager.engine.unregisterUpdateHandler(loader);
+					resourceManager.loadFonts();
+					resourceManager.loadSounds();
+					resourceManager.loadGameResources();
+					sceneManager.createMenuScene();
+					sceneManager.setCurrentScene(Scenes.MENU);
+							
+					
+				}
+			}));
+			
+			pOnPopulateSceneCallback.onPopulateSceneFinished();		
+	}
+	@Override
+	public void onBackPressed()
+	{
+	    Scene scene = this.mEngine.getScene();
+	    if(scene ==sceneManager.gameScene){
+	    	GameScene gs=(GameScene)scene;
+	    //	gs.updateHighScore();
+	    	sceneManager.setCurrentScene(Scenes.MENU);
+	    	if(sceneManager.resourceManager.sM.vanRunMusic!=null)
+	    	sceneManager.resourceManager.sM.vanRunMusic.pause();
+	    	if(sceneManager.resourceManager.sM.vanStartMusic!=null)
+	    	sceneManager.resourceManager.sM.vanStartMusic.pause();
+	    	if(sceneManager.resourceManager.sM.vanStopMusic!=null)
+	    	   	sceneManager.resourceManager.sM.vanStopMusic.pause();
+	   	    		
+	    }
+	    else
+	    	finish();
+	}
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		if(sceneManager.resourceManager.sM.bgMusic!=null)
+			sceneManager.resourceManager.sM.bgMusic.pause();
+	    Scene scene = this.mEngine.getScene();
+	    if(scene ==sceneManager.gameScene){
+	    	scene.reset();
+	    	sceneManager.setCurrentScene(Scenes.MENU);
+	    }
+	}
+	/*protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		if(sceneManager.resourceManager.bgMusic!=null)
+			sceneManager.resourceManager.bgMusic.play();
+		
+	}*/
+	
+	
+}
