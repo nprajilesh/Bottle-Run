@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bottle Jump</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="fb_id">1558833751068230</string>
+    <string name="app_string">Dhwani is more addictive than each bottle you jump!</string>
+    <string name="msg">"Please wait for a while.. "</string>
+    <string name="welcome">"Welcome"</string>
+    <string name="presents">"<b>Dhwani 15</b> \n Presents \n <b>BottleJump</b>"</string>
+    <string name="heading"> "<b>Dhwani 15 -BottleJump </b>"</string>
+    <string name="credits"> "<u>Credits</u>"</string>
+    <string name="title1"> "<u>Programmers</u>"</string>
+    <string name="title2"> "<u>Graphic Artists</u>"</string>
+    <string name="version"><b>Bottle Jump</b> Version v4.0 </string>
+    <string name="name1">Prince K M</string>
+    <string name="name2">Joseph Joice</string>
+    <string name="name3">Prajilesh N</string>
+    <string name="name4">Akash K Sunny</string>
+    <string name="name5">Rohan Reji</string>
+    <string name="text">"\nSend your feedbacks at"</string>
+    <string name="email_info">" prince@cetdhwani.com\njoseph@cetdhwani.com"</string>
+    <string name="name6">Arun Joseph</string>
+    <string name="name7">Dhananjay Pai </string>
+    <string name="desc">"Dhwani the bloom carnival is firing on all cylinders.Be it the promos,publicity stunts,intensity of events or innovations that has caught the cynosure of all....all of these have been done to perfection by the indomitable spirit and passion of the CETians.The virtual world has become Dhwani mode for past few weeks.The 10th edition  is breaking away from conventional fests and creating new and novel notion of college fests with the ever existing happiness of dhwani combining with virtues of freedom and ethics that makes the event the real voice of the wild youth.
+BottleJump has been  a trendsetter in online publicity with the virtual world jumping all the time.Jump ..folks and beat the highscore.Remember dhwani is more exciting than each bottle you jump...."</string>
+    <string name="title_activity_fblogin">FBloginAct</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+
+</resources>

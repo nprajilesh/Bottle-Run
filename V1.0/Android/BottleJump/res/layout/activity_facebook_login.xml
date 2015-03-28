@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greensea" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <AutoCompleteTextView
+            android:id="@+id/colleges"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/frame"
+            android:layout_marginTop="10dp"
+            
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/input"
+            android:hint="College Name"
+            android:paddingLeft="5dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/text1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/presents"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <View
+                android:id="@+id/player_view"
+                android:layout_width="64dp"
+                android:layout_height="128dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:background="@anim/playeranimate" />
+
+            <View
+                android:id="@+id/bottle"
+                android:layout_width="16dp"
+                android:layout_height="64dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bottle4" />
+
+            <View
+                android:id="@+id/icon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/dhwani" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/frame"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical" >
+
+            <com.facebook.widget.LoginButton
+                android:id="@+id/login_button"
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custom_button"
+                android:onClick="submitCollege"
+                android:text="Submit"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:visibility="invisible" />
+
+            <ProgressBar
+                android:id="@+id/submit_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_margin="6dp"
+                android:visibility="gone"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:indeterminate="true" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/frame"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="@string/app_string"
+            android:textColor="@color/color2"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

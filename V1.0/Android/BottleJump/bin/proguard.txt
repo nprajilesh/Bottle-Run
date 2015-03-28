@@ -1,0 +1,19 @@
+# view AndroidManifest.xml #generated:20
+-keep class cet.magic75.dhwani.GameActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:47
+-keep class com.cetdhwani.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:32
+-keep class com.cetdhwani.bottlejump.FBlogin { <init>(...); }
+
+# view AndroidManifest.xml #generated:26
+-keep class com.facebook.LoginActivity { <init>(...); }
+
+# view res/layout/activity_facebook_login.xml #generated:86
+# view res/layout/com_facebook_usersettingsfragment.xml #generated:48
+-keep class com.facebook.widget.LoginButton { <init>(...); }
+
+# onClick res/layout/activity_facebook_login.xml #generated:94
+-keepclassmembers class * { *** submitCollege(...); }
+
